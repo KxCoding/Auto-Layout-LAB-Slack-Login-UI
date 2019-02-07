@@ -10,7 +10,20 @@ import UIKit
 
 class EmailViewController: UIViewController {
 
-    override func viewDidLoad() {
+   @IBOutlet weak var titleLabelBottomConstraint: NSLayoutConstraint!
+   
+   @IBOutlet weak var titleLabel: UILabel!
+   
+   
+   @IBOutlet weak var placeholderLabel: UILabel!
+   
+   @IBOutlet weak var emailField: UITextField!
+   
+   
+   @IBAction func movePrevious(_ sender: Any) {
+      navigationController?.popViewController(animated: true)
+   }
+   override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
