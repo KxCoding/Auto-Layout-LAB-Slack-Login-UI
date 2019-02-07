@@ -46,6 +46,23 @@ extension ViewController: UITextFieldDelegate {
          }
       }
       
+      let finalText = NSMutableString(string: textField.text ?? "")
+      finalText.replaceCharacters(in: range, with: string)
+      
+      let font = textField.font ?? UIFont.systemFont(ofSize: 16)
+      
+      let dict = [NSAttributedString.Key.font: font]
+      
+      let width = finalText.size(withAttributes: dict).width
+      
+      placeholderLeadingConstraint.constant = width
+      
+      if finalText.length == 0 {
+         placeholderLabel.text = "workspace-url.slack.com"
+      } else {
+         placeholderLabel.text = ".slack.com"
+      }
+      
       return true
    }
 }
